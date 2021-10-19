@@ -522,12 +522,14 @@ function _ui_patterns_variants_get_form_elements(array $variants, $defaults = []
 
     // Validation label.
     if (!isset($variant['label'])) {
-      drupal_set_message(t("%variant_key is missing label", ["%variant_key" => $key]), 'error', FALSE);
+      \Drupal::messenger()->addMessage(t("%variant_key is missing label",
+        ["%variant_key" => $key]), 'error', FALSE);
     }
 
     // Validation description.
     if (!isset($variant['description'])) {
-      drupal_set_message(t("%variant_key is missing description", ["%variant_key" => $key]), 'error', FALSE);
+      \Drupal::messenger()->addMessage(t("%variant_key is missing description",
+        ["%variant_key" => $key]), 'error', FALSE);
     }
 
     $pattern_settings['variants'][$key] = [
